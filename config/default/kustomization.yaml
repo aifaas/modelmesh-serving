@@ -13,53 +13,54 @@
 # limitations under the License.
 
 vars:
-  - fieldref:
-      fieldPath: metadata.namespace
-    name: CERTIFICATE_NAMESPACE_PLACEHOLDER
-    objref:
-      group: cert-manager.io
-      kind: Certificate
-      name: modelmesh-webhook-server-cert
-      version: v1
-  - fieldref: {}
-    name: CERTIFICATE_NAME_PLACEHOLDER
-    objref:
-      group: cert-manager.io
-      kind: Certificate
-      name: modelmesh-webhook-server-cert
-      version: v1
-  - fieldref:
-      fieldPath: metadata.namespace
-    name: SERVICE_NAMESPACE_PLACEHOLDER
-    objref:
-      kind: Service
-      name: modelmesh-webhook-server-service
-      version: v1
-  - fieldref: {}
-    name: SERVICE_NAME_PLACEHOLDER
-    objref:
-      kind: Service
-      name: modelmesh-webhook-server-service
-      version: v1
+- fieldref:
+    fieldPath: metadata.namespace
+  name: CERTIFICATE_NAMESPACE_PLACEHOLDER
+  objref:
+    group: cert-manager.io
+    kind: Certificate
+    name: modelmesh-webhook-server-cert
+    version: v1
+- fieldref: {}
+  name: CERTIFICATE_NAME_PLACEHOLDER
+  objref:
+    group: cert-manager.io
+    kind: Certificate
+    name: modelmesh-webhook-server-cert
+    version: v1
+- fieldref:
+    fieldPath: metadata.namespace
+  name: SERVICE_NAMESPACE_PLACEHOLDER
+  objref:
+    kind: Service
+    name: modelmesh-webhook-server-service
+    version: v1
+- fieldref: {}
+  name: SERVICE_NAME_PLACEHOLDER
+  objref:
+    kind: Service
+    name: modelmesh-webhook-server-service
+    version: v1
 
 configMapGenerator:
-  - files:
-      - config-defaults.yaml
-    name: model-serving-config-defaults
+- files:
+  - config-defaults.yaml
+  name: model-serving-config-defaults
 
 generatorOptions:
   disableNameSuffixHash: true
 
 transformers:
-  - metadataLabelTransformer.yaml
+- metadataLabelTransformer.yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - ../crd
-  - ../manager
-  - ../webhook
-  - ../certmanager
+- ../crd
+- ../manager
+- ../webhook
+- ../certmanager
 
 patches:
-  - path: manager_webhook_patch.yaml
-  - path: webhookcainjection_patch.yaml
+- path: manager_webhook_patch.yaml
+- path: webhookcainjection_patch.yaml
+namespace: sapir-platform
