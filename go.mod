@@ -1,4 +1,4 @@
-module github.com/kserve/modelmesh-serving
+module github.com/aifaas/modelmesh-serving
 
 go 1.21
 
@@ -8,6 +8,7 @@ require (
 	github.com/golang/protobuf v1.5.3
 	github.com/google/go-cmp v0.6.0
 	github.com/kserve/kserve v0.12.0
+	github.com/kserve/modelmesh-serving v0.12.0
 	github.com/manifestival/controller-runtime-client v0.4.0
 	github.com/manifestival/manifestival v0.7.1
 	github.com/moverest/mnist v0.0.0-20160628192128-ec5d9d203b59
