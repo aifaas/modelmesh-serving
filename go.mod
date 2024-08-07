@@ -1,4 +1,4 @@
-module github.com/aifaas/modelmesh-serving
+module github.com/aifaas/sapir-severless-platform/modelmesh-serving
 
 go 1.21
 
